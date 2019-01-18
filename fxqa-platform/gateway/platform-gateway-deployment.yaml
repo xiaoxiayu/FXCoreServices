@@ -1,0 +1,40 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: platform-gateway
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        platform: gateway
+    spec:
+      containers:
+      - name: platformcache
+        image: 10.103.129.81:5000/platform-gateway:v1
+        ports:
+        - containerPort: 9090
+        volumeMounts:
+        - mountPath: /foxitqa/ServicesCfg
+          name: servicescfg-volume
+      volumes:
+      - name: servicescfg-volume
+        hostPath:
+          path: /mnt/mfs/Public/ServicesCfg
+      nodeSelector:
+        SET: platform
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: platform-gateway-service
+  labels:
+    run: platform-gateway-service
+spec:
+  type: NodePort
+  ports:
+  - port: 9090
+    protocol: TCP
+    nodePort: 32460
+  selector:
+    platform: gateway

@@ -1,0 +1,321 @@
+{
+    "consumes": [
+        "application/json",
+        "application/xml"
+    ],
+    "produces": [
+        "application/json",
+        "application/xml"
+    ],
+    "schemes": [
+        "http"
+    ],
+    "swagger": "2.0",
+    "info": {
+        "description": "Redis Services.",
+        "title": "Cache API.",
+        "termsOfService": "there are no TOS at this moment, use at your own risk we take no responsibility",
+        "contact": {
+            "name": "xiaoxia_yu",
+            "email": "xiaoxia_yu@foxitsoftware.com"
+        },
+        "license": {
+            "name": "MIT",
+            "url": "http://opensource.org/licenses/MIT"
+        },
+        "version": "0.0.1"
+    },
+    "host": "SET:platform",
+    "basePath": "/cache",
+    "paths": {
+        "/info": {
+            "get": {
+                "description": "This will show all available pets by default.\nYou can get the pets that are out of stock",
+                "consumes": [
+                    "application/json",
+                    "application/x-protobuf"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/x-protobuf"
+                ],
+                "schemes": [
+                    "http",
+                    "https",
+                    "ws",
+                    "wss"
+                ],
+                "tags": [
+                    "Data"
+                ],
+                "summary": "Lists pets filtered by some parameters.",
+                "operationId": "info",
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "oauth": [
+                            "read",
+                            "write"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/responses/someResponse"
+                    },
+                    "422": {
+                        "$ref": "#/responses/validationError"
+                    },
+                    "default": {
+                        "$ref": "#/responses/genericError"
+                    }
+                }
+            }
+        },
+        "/key/{key}": {
+            "delete": {
+                "description": "Set string data from redis server.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "schemes": [
+                    "http",
+                    "https",
+                    "ws",
+                    "wss"
+                ],
+                "tags": [
+                    "Cache",
+                    "key"
+                ],
+                "summary": "Lists pets filtered by some parameters.",
+                "operationId": "delKeyParam",
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "oauth": [
+                            "read",
+                            "write"
+                        ]
+                    }
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "x-go-name": "Key",
+                        "description": "Key",
+                        "name": "key",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/responses/someResponse"
+                    },
+                    "422": {
+                        "$ref": "#/responses/validationError"
+                    }
+                }
+            }
+        },
+        "/string": {
+            "get": {
+                "description": "Get string data from redis server.",
+                "consumes": [
+                    "application/json",
+                    "application/x-protobuf"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/x-protobuf"
+                ],
+                "schemes": [
+                    "http",
+                    "https",
+                    "ws",
+                    "wss"
+                ],
+                "tags": [
+                    "Cache",
+                    "string"
+                ],
+                "summary": "Lists pets filtered by some parameters.",
+                "operationId": "stringParam",
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "oauth": [
+                            "read",
+                            "write"
+                        ]
+                    }
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "x-go-name": "Key",
+                        "name": "key",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/responses/someResponse"
+                    },
+                    "422": {
+                        "$ref": "#/responses/validationError"
+                    },
+                    "default": {
+                        "$ref": "#/responses/BarSliceParam"
+                    }
+                }
+            },
+            "post": {
+                "description": "Set string data from redis server.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "schemes": [
+                    "http",
+                    "https",
+                    "ws",
+                    "wss"
+                ],
+                "tags": [
+                    "Cache",
+                    "string"
+                ],
+                "summary": "Lists pets filtered by some parameters.",
+                "operationId": "postStringParam",
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "oauth": [
+                            "read",
+                            "write"
+                        ]
+                    }
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "x-go-name": "Key",
+                        "description": "Key",
+                        "name": "key",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "x-go-name": "Value",
+                        "description": "Value",
+                        "name": "value",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "x-go-name": "Expire",
+                        "description": "Expire time",
+                        "name": "expire",
+                        "in": "formData"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/responses/someResponse"
+                    },
+                    "422": {
+                        "$ref": "#/responses/validationError"
+                    }
+                }
+            }
+        },
+        "/string/{key}": {
+            "put": {
+                "description": "Set string data from redis server.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "schemes": [
+                    "http",
+                    "https",
+                    "ws",
+                    "wss"
+                ],
+                "tags": [
+                    "Cache",
+                    "string"
+                ],
+                "summary": "Lists pets filtered by some parameters.",
+                "operationId": "putStringParam",
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "oauth": [
+                            "read",
+                            "write"
+                        ]
+                    }
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "x-go-name": "Key",
+                        "description": "Key",
+                        "name": "key",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "x-go-name": "Value",
+                        "description": "Value",
+                        "name": "value",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "x-go-name": "Expire",
+                        "description": "Expire time",
+                        "name": "expire",
+                        "in": "formData"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/responses/someResponse"
+                    },
+                    "422": {
+                        "$ref": "#/responses/validationError"
+                    }
+                }
+            }
+        }
+    },
+    
+    
+  
+    "definitions": {}
+}

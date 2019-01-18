@@ -1,0 +1,16 @@
+{
+    "client": {
+        "darwin": {
+            "lastest_version": 2.51,
+            "lastest_url": "http://10.103.2.166:9090/QCFileServerRelease/mac64/fxqa-testserver_2.51",
+            "update_info": "fx_compare_v2 support and moniter update"
+        }
+    },
+    "task_server": {
+        "darwin": {
+            "lastest_version": 2.0,
+            "lastest_url": "http://10.103.2.166:9090/QCFileServerRelease/darwin/gui-server_2.0",
+            "update_info": "add log history control"
+        }
+    }
+}

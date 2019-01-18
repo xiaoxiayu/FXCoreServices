@@ -1,0 +1,27 @@
+{
+    "apiVersion": "1.0.0",
+    "swaggerVersion": "2.0",
+    "basePath": "/api",
+    "apis": [
+        {
+            "path": "/order",
+            "description": "Order management API"
+        },
+        {
+            "path": "/cache-stats",
+            "description": "Statistic gathering API"
+        },
+        {
+            "path": "URI",
+            "description": "DESCRIPTION"
+        }
+    ],
+    "info": {
+        "title": "My Cool API",
+        "description": "My API usually works as expected.",
+        "contact": "api@contact.me",
+        "termsOfServiceUrl": "http://google.com/",
+        "license": "BSD",
+        "licenseUrl": "http://opensource.org/licenses/BSD-2-Clause"
+    }
+}
